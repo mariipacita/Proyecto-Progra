@@ -9,5 +9,43 @@ package cartas;
  * @author marii
  */
 public class Carta {
+    private String imagen;
+    private boolean visible;
+    private boolean encontrada;
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public boolean isVisible() {
+        return visible;
+    }
+
+    public boolean isEncontrada() {
+        return encontrada;
+    }
     
+    public Carta(String imagen, boolean visible, boolean encontrada) {
+        this.imagen = imagen;
+        this.visible = visible;
+        this.encontrada = encontrada;
+    }
+
+    public void mostrar() {
+        visible = true;
+    }
+
+    public void ocultar() {
+        visible = false;
+    }
+
+    public void marcarEncontrada() {
+        encontrada = true;
+        visible = true;
+    }
+
+    public boolean esIgual(Carta otraCarta) {
+        return imagen.equals(otraCarta.imagen);
+    }
 }
+
