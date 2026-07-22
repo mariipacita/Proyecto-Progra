@@ -12,6 +12,8 @@ public class Jugador {
     protected String name;
     protected int puntaje;
     protected int parejas;
+    protected int intentos;
+    
 
     public String getName() {
         return name;
@@ -31,6 +33,23 @@ public class Jugador {
 
     public void setParejas(int parejas) {
         this.parejas = parejas;
+    }
+
+    public void ParejasCorrectas(){
+        parejas++;
+        puntaje += 100;
+    }
+    
+    public void IntentosSum(){
+        intentos ++;
+        puntaje -=20;
+    }
+    
+    public Jugador(String name) {
+        this.name = name;
+        this.puntaje = 0;
+        this.parejas =0;
+        this.intentos= 0;
     }
     
     

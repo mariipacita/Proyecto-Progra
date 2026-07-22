@@ -9,28 +9,19 @@ package jugadores;
  * @author gabri
  */
 public class controlJugadores {
-    private Jugador modelo;
-    private int contPareja;
-
-    public controlJugadores(Jugador modelo) {
-        this.modelo = modelo;
-        this.contPareja = 0;
+   private Jugador jugador;
+   
+    public void ParejasEncontradas(){
+        jugador.ParejasCorrectas();
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    public void intentosEjecutados(){
+        jugador.IntentosSum();
+    }
+
+    public controlJugadores(Jugador jugador) {
+        this.jugador = jugador;
+    }
     
     
     
