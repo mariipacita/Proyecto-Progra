@@ -12,24 +12,21 @@ import javax.swing.Timer;
  */
 public class CotrolCronometro {
     
-private cronometro cronometro;
+private cronometro cron;
     
-    private Timer timer;
+    
 
     public CotrolCronometro(cronometro cronometro, Timer timer) {
-        this.cronometro =new cronometro();
-        this.timer = new Timer(1000, new ActionListener(){
-             @Override
-    public void actionPerformed(ActionEvent e) {
-      }
-     });
+        this.cron =new cronometro();
+       
     }
     
-    public void iniciar(){
-        timer.start();
+    public void iniciarC(){
+        cron.iniciar();
+        
     }
-    public void parar(){
-        timer.stop();
+    public void pararC(){
+        cron.parar();
     }
     
     public void regresarTiempo(){

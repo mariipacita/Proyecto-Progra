@@ -4,12 +4,16 @@
  */
 package Cronometro;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.Timer;
+
 /**
  *
  * @author gabri
  */
 public class cronometro {
-    
+     private Timer timer;
     protected int time;
     protected boolean activo;
 
@@ -21,9 +25,15 @@ public class cronometro {
         return activo;
     }
 
-    public cronometro() {
+    public cronometro( Timer timer) {
         this.time = 0;
         this.activo = false;
+         this.timer = new Timer(1000, new ActionListener(){
+             @Override
+    public void actionPerformed(ActionEvent e) {
+      }
+     });
+        
     }
     
     
@@ -37,7 +47,13 @@ public class cronometro {
         time = 0;
     }
     
-    
+    public void iniciarT(){
+        timer.start();
+        
+    }
+    public void pararT(){
+        timer.stop();
+    }
     
     
     
