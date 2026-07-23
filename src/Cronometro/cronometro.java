@@ -14,20 +14,14 @@ import javax.swing.Timer;
  */
 public class cronometro {
      private Timer timer;
-    protected int time;
-    protected boolean activo;
+    protected int duracion;
+  
 
-    public int getTime() {
-        return time;
-    }
+   
+ 
 
-    public boolean isActivo() {
-        return activo;
-    }
-
-    public cronometro( Timer timer) {
-        this.time = 0;
-        this.activo = false;
+    public cronometro( Timer timer, int duracion) {
+         this.duracion= duracion;
          this.timer = new Timer(1000, new ActionListener(){
              @Override
     public void actionPerformed(ActionEvent e) {
@@ -37,14 +31,8 @@ public class cronometro {
     }
     
     
-    public void incio(){
-        activo = true;
-    }
-    public void fin(){
-        activo = false;
-    }
-    public void reinicioCronometro(){
-        time = 0;
+    public void reinicioT(){
+       timer.restart();
     }
     
     public void iniciarT(){
@@ -55,6 +43,9 @@ public class cronometro {
         timer.stop();
     }
     
+    public void tiempoDurado(){
+        
+    }
     
     
     

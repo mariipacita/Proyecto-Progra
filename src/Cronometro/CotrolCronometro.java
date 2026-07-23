@@ -14,27 +14,30 @@ public class CotrolCronometro {
     
 private cronometro cron;
     
+    //timer en el mpodelo y en la vista hay que hacer otro para que se muestre
+
+    public CotrolCronometro(cronometro cron) {
+        this.cron = cron;
+    }
+
     
 
-    public CotrolCronometro(cronometro cronometro, Timer timer) {
-        this.cron =new cronometro();
-       
-    }
     
-    public void iniciarC(){
-        cron.iniciar();
+    
+    public void iniciar(){
+      cron.iniciarT();
         
     }
-    public void pararC(){
-        cron.parar();
+    public void parar(){
+        cron.pararT();
     }
     
-    public void regresarTiempo(){
-        timer.stop();
-        cronometro.reinicioCronometro();
+    public void reiniciarTiempo(){
+        cron.pararT();
+       cron.reinicioT();
     }
-    public int timepoObtenido(){
-        return cronometro.getTime();
+    public void timepoObtenido(){
+        
     }
     
     
