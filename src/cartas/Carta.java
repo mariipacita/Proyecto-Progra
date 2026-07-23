@@ -27,8 +27,8 @@ public class Carta {
     
     public Carta(String imagen, boolean visible, boolean encontrada) {
         this.imagen = imagen;
-        this.visible = visible;
-        this.encontrada = encontrada;
+        this.visible = false;
+        this.encontrada = false;
     }
 
     public void mostrar() {
@@ -36,7 +36,9 @@ public class Carta {
     }
 
     public void ocultar() {
+         if (!encontrada) {
         visible = false;
+    }
     }
 
     public void marcarEncontrada() {
