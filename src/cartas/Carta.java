@@ -25,7 +25,7 @@ public class Carta {
         return encontrada;
     }
     
-    public Carta(String imagen, boolean visible, boolean encontrada) {
+    public Carta(String imagen) {
         this.imagen = imagen;
         this.visible = false;
         this.encontrada = false;
