@@ -4,41 +4,48 @@
  */
 package Cronometro;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.Timer;
+
 /**
  *
  * @author gabri
  */
 public class cronometro {
-    
-    protected int time;
-    protected boolean activo;
+     private Timer timer;
+    protected int duracion;
+  
 
-    public int getTime() {
-        return time;
-    }
+   
+ 
 
-    public boolean isActivo() {
-        return activo;
-    }
-
-    public cronometro() {
-        this.time = 0;
-        this.activo = false;
-    }
-    
-    
-    public void incio(){
-        activo = true;
-    }
-    public void fin(){
-        activo = false;
-    }
-    public void reinicioCronometro(){
-        time = 0;
+    public cronometro( Timer timer, int duracion) {
+         this.duracion= duracion;
+         this.timer = new Timer(1000, new ActionListener(){
+             @Override
+    public void actionPerformed(ActionEvent e) {
+      }
+     });
+        
     }
     
     
+    public void reinicioT(){
+       timer.restart();
+    }
     
+    public void iniciarT(){
+        timer.start();
+        
+    }
+    public void pararT(){
+        timer.stop();
+    }
+    
+    public void tiempoDurado(){
+        
+    }
     
     
     

@@ -12,32 +12,32 @@ import javax.swing.Timer;
  */
 public class CotrolCronometro {
     
-private cronometro cronometro;
+private cronometro cron;
     
-    private Timer timer;
+    //timer en el mpodelo y en la vista hay que hacer otro para que se muestre
 
-    public CotrolCronometro(cronometro cronometro, Timer timer) {
-        this.cronometro =new cronometro();
-        this.timer = new Timer(1000, new ActionListener(){
-             @Override
-    public void actionPerformed(ActionEvent e) {
-      }
-     });
+    public CotrolCronometro(cronometro cron) {
+        this.cron = cron;
     }
+
+    
+
+    
     
     public void iniciar(){
-        timer.start();
+      cron.iniciarT();
+        
     }
     public void parar(){
-        timer.stop();
+        cron.pararT();
     }
     
-    public void regresarTiempo(){
-        timer.stop();
-        cronometro.reinicioCronometro();
+    public void reiniciarTiempo(){
+        cron.pararT();
+       cron.reinicioT();
     }
-    public int timepoObtenido(){
-        return cronometro.getTime();
+    public void timepoObtenido(){
+        
     }
     
     
