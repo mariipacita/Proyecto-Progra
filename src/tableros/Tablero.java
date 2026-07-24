@@ -6,6 +6,7 @@ package tableros;
 import cartas.Carta;
 import java.util.ArrayList;
 import java.util.Collections;
+import niveles.Nivel;
 /**
  *
  * @author marii
@@ -114,4 +115,29 @@ public class Tablero {
         cartas = new Carta[filas][columnas];
         inicializarTablero();
     }
+  
+  public Tablero(Nivel nivel) {
+
+    switch (nivel) {
+
+        case PRINCIPIANTE:
+            filas = 4;
+            columnas = 4;
+            break;
+
+        case INTERMEDIO:
+            filas = 4;
+            columnas = 8;
+            break;
+
+        case AVANZADO:
+            filas = 8;
+            columnas = 8;
+            break;
+    }
+
+    cartas = new Carta[filas][columnas];
+
+    
+}
  }

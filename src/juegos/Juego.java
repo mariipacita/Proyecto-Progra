@@ -6,6 +6,8 @@ package juegos;
 
 import Cronometro.cronometro;
 import jugadores.Jugador;
+import niveles.Nivel;
+import tableros.Tablero;
 
 /**
  *
