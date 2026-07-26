@@ -20,15 +20,20 @@ public class cronometro {
    
  
 
-    public cronometro( Timer timer, int duracion) {
-         this.duracion= duracion;
-         this.timer = new Timer(1000, new ActionListener(){
-             @Override
-    public void actionPerformed(ActionEvent e) {
-      }
-     });
+   public cronometro(int duracion) {
+    this.duracion = duracion;
+
+    timer = new Timer(1000, new ActionListener() {
         
-    }
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            // Aquí irá la lógica para contar el tiempo
+        }
+    });
+
+}
+        
+    
     
     
     public void reinicioT(){

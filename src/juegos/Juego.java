@@ -5,6 +5,7 @@
 package juegos;
 
 import Cronometro.cronometro;
+import cartas.Carta;
 import jugadores.Jugador;
 import niveles.Nivel;
 import tableros.Tablero;
@@ -18,37 +19,82 @@ public class Juego {
     private Jugador jugador;
     private cronometro Cronometro;
     private Nivel nivel;
-    
+    private Carta primeraCarta;
+    private Carta segundaCarta;
     
     public Juego(Jugador jugador, Nivel nivel){
         this.jugador = jugador;
         this.nivel = nivel;
         this.tablero = new Tablero(nivel);
-        this.Cronometro = new cronometro();
+        this.Cronometro = new cronometro(60);
     }
     
     public void iniciarPartida() {
+        tablero.inicializarTablero();
+        Cronometro.iniciarT();
 
 }
 
 public void seleccionarCarta(int fila, int columna) {
 
+    Carta carta = tablero.obtenerCarta(fila, columna);
+    if (carta == null || carta.isEncontrada()) {
+        return;
+    }
+    carta.mostrar();
+    if (primeraCarta == null) {
+        primeraCarta = carta;     
+    } else if (segundaCarta == null) {    
+        segundaCarta = carta;     
+        verificarPareja();
+    }
 }
+
 
 public void verificarPareja() {
+   
+    if (primeraCarta.esIgual(segundaCarta)) {
+
+        primeraCarta.marcarEncontrada();
+        segundaCarta.marcarEncontrada();
+
+        actualizarJugador();
+    } else {
+        primeraCarta.ocultar();
+        segundaCarta.ocultar();
+    }
+    primeraCarta = null;
+    segundaCarta = null;
 
 }
+
+
 
 public void actualizarJugador() {
+    
+    jugador.ParejasCorrectas();
 
 }
+
+
 
 public void finalizarJuego() {
+    Cronometro.pararT();
+
+    System.out.println("Juego terminado");
 
 }
+
 
 public void reiniciarPartida() {
 
+    tablero.reiniciarTablero();
+    Cronometro.reinicioT();
+
+    primeraCarta = null;
+    segundaCarta = null;
+
 }
 }
+
     
