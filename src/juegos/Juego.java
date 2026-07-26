@@ -59,6 +59,10 @@ public void verificarPareja() {
         segundaCarta.marcarEncontrada();
 
         actualizarJugador();
+        
+        if (tablero.juegoFinalizado()){
+            finalizarJuego();
+        }
     } else {
         primeraCarta.ocultar();
         segundaCarta.ocultar();
@@ -71,7 +75,6 @@ public void verificarPareja() {
 
 
 public void actualizarJugador() {
-    
     jugador.ParejasCorrectas();
 
 }
@@ -82,7 +85,9 @@ public void finalizarJuego() {
     Cronometro.pararT();
 
     System.out.println("Juego terminado");
-
+    System.out.println("Puntaje: " + jugador.getPuntaje());
+    System.out.println("Parejas encontradas: " + jugador.getParejas());
+  
 }
 
 
@@ -91,10 +96,12 @@ public void reiniciarPartida() {
     tablero.reiniciarTablero();
     Cronometro.reinicioT();
 
+    jugador.reiniciarJugador();
+    
     primeraCarta = null;
     segundaCarta = null;
 
-}
+ }
 }
 
     
