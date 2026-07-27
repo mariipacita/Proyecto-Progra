@@ -29,8 +29,14 @@ public class Juego {
         this.jugador = jugador;
         this.nivel = nivel;
         this.tablero = new Tablero(nivel);
-        this.Cronometro = new cronometro(60);
+        this.Cronometro = new cronometro();
+       
+       
     }
+
+   
+
+    
     
     public void iniciarPartida() {
         tablero.inicializarTablero();

@@ -36,6 +36,26 @@ public class cronometro {
     });
 
 }
+
+    public Timer getTimer() {
+        return timer;
+    }
+
+    public int getDuracion() {
+        return duracion;
+    }
+
+    public int getMin() {
+        return min;
+    }
+
+    public int getSeg() {
+        return seg;
+    }
+
+    public void setTimer(Timer timer) {
+        this.timer = timer;
+    }
         
     
     
