@@ -70,7 +70,10 @@ public class cronometro {
         
     }
     public void pararT(){
+        if (timer.equals(900)){
+
         timer.stop();
+        }
     }
     
     public void tiempoDurado(){
@@ -78,7 +81,8 @@ public class cronometro {
              seg= duracion%60;
       
     }
-    
+
+
     
     
     
