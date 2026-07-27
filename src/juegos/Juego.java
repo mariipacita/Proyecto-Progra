@@ -6,6 +6,9 @@ package juegos;
 
 import Cronometro.cronometro;
 import cartas.Carta;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.Timer;
 import jugadores.Jugador;
 import niveles.Nivel;
 import tableros.Tablero;
@@ -64,14 +67,24 @@ public void verificarPareja() {
             finalizarJuego();
         }
     } else {
+        Timer timer = new Timer(2000, new ActionListener(){
+            
+            @Override
+            public void actionPerformed(ActionEvent e) {
+        
         primeraCarta.ocultar();
         segundaCarta.ocultar();
-    }
-    primeraCarta = null;
-    segundaCarta = null;
-
+    
+        primeraCarta = null;
+        segundaCarta = null;
+            }
+        });
+        timer.setRepeats(false);
+        timer.start();
+        
+        return;
 }
-
+}
 
 
 public void actualizarJugador() {
