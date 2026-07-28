@@ -12,6 +12,12 @@ import jugadores.Jugador;
  */
 public class jugador {
      private Jugador jugador;
+
+    
+     
+     
+     
+     
    
     public void ParejasEncontradas(){
         jugador.ParejasCorrectas();
@@ -21,10 +27,18 @@ public class jugador {
         jugador.IntentosSum();
     }
 
+    
+    public void reiniciar(){
+        jugador.reiniciarJugador();
+    }
     public jugador(Jugador jugador) {
         this.jugador = jugador;
     }
-
-   
+    public int obtenerPareja(){
+        return jugador.getParejas();
+    }
+     public int obtenerMovimientos(){
+         return jugador.getIntentos();
+     }
     
 }

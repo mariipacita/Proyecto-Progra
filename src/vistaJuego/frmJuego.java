@@ -13,6 +13,8 @@ import javax.swing.JOptionPane;
 import javax.swing.Timer;
 import jugadores.Jugador;
 import Cronometro.cronometro;
+import ControladorJuegoMemoria.CronometroControl;
+import ControladorJuegoMemoria.jugador;
 
 public class frmJuego extends javax.swing.JFrame {
 
@@ -22,9 +24,11 @@ public class frmJuego extends javax.swing.JFrame {
     private int[] parejas;
     private int[] imagenCarta;
     private int cantidadBotones;
-    private jugadores.Jugador jugador;
-    private Cronometro.cronometro cron;
+  
+    private Cronometro.cronometro cronModelo;
+    private jugadores.Jugador jugadorModelo;
     private ControladorJuegoMemoria.CronometroControl cronometro;
+    private ControladorJuegoMemoria.jugador jugador;
     private Timer timer;
 
     private int primeraCarta = -1;
@@ -50,9 +54,9 @@ public class frmJuego extends javax.swing.JFrame {
 
         this.dificultad = dificultad;
         this.nombreJugador = nombreJugador;
-        jugador = new jugadores.Jugador(nombreJugador);
-        cron = new Cronometro.cronometro();
-        cronometro = new ControladorJuegoMemoria.CronometroControl(cron, jugador);
+        jugador = new ControladorJuegoMemoria.jugador(jugadorModelo);
+        cronModelo = new Cronometro.cronometro();
+        cronometro = new ControladorJuegoMemoria.CronometroControl(cronModelo);
         
         cargarBotones();
         configurarTablero();
@@ -67,10 +71,10 @@ public class frmJuego extends javax.swing.JFrame {
         lblTiempo.setText("00:00");
          timer = new Timer(1000, e -> {
 
-    lblTiempo.setText(cron.tiempoDurado());
+    lblTiempo.setText(cronometro.obtenerTiempo());
 
 });
-         cron.iniciarT();
+         cronModelo.iniciarT();
          timer.start();
         setLocationRelativeTo(null);
     }
@@ -255,10 +259,10 @@ public class frmJuego extends javax.swing.JFrame {
 
             segundaCarta = posicion;
 
-          jugador.IntentosSum();
+          jugador.intentosEjecutados();
 
             lblMovimientos.setText(
-                    String.valueOf(jugador.getIntentos())
+                    String.valueOf(jugador.obtenerMovimientos())
             );
 
             comprobarPareja();
@@ -310,17 +314,17 @@ public class frmJuego extends javax.swing.JFrame {
             btns[primeraCarta].setEnabled(false);
             btns[segundaCarta].setEnabled(false);
 
-          jugador.ParejasCorrectas();
+          jugador.ParejasEncontradas();
 
             lblParesEncontrados.setText(
-                    jugador.getParejas()
+                    jugador.obtenerPareja()
                     + " / "
                     + (cantidadBotones / 2)
             );
 
             limpiarSeleccion();
 
-            if (jugador.getParejas()
+            if (jugador.obtenerPareja()
                     == cantidadBotones / 2) {
 
                 juegoTerminado();
@@ -360,7 +364,7 @@ public class frmJuego extends javax.swing.JFrame {
     }
 
     private void juegoTerminado() {
-    cron.pararT();
+    cronometro.parar();
     timer.stop();
     frmFinal finalJuego = new frmFinal();
    
@@ -372,12 +376,12 @@ public class frmJuego extends javax.swing.JFrame {
     private void reiniciarJuego() {
         
         
-        cron.reinicioT();
-        cron.iniciarT();
+        cronometro.reiniciarTiempo();
+        cronometro.iniciar();
         primeraCarta = -1;
         segundaCarta = -1;
 
-       jugador.reiniciarJugador();
+       jugador.reiniciar();
 
         esperando = false;
 

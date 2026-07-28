@@ -16,9 +16,9 @@ public class CronometroControl {
     
     //timer en el mpodelo y en la vista hay que hacer otro para que se muestre
 
-    public CronometroControl(Cronometro.cronometro cron, jugadores.Jugador jugador) {
+    public CronometroControl(Cronometro.cronometro cron) {
         this.cron = cron;
-        this.jugador = jugador;
+        
     }
 
  
@@ -37,9 +37,7 @@ public class CronometroControl {
        jugador.reiniciarJugador();
        
     }
-    public void timepoObtenido(){
-        cron.tiempoDurado();
-    }
+  
     
     public String obtenerTiempo() {
     return cron.tiempoDurado();
