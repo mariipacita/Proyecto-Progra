@@ -116,7 +116,8 @@ public class Tablero {
         inicializarTablero();
     }
   
-  public Tablero(Nivel nivel) {
+  public Tablero(Nivel nivel, String[] imagenes) {
+      this.imagenes = imagenes;
 
     switch (nivel) {
 
@@ -138,6 +139,6 @@ public class Tablero {
 
     cartas = new Carta[filas][columnas];
 
-    
+   inicializarTablero();  
 }
  }
