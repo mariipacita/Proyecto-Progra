@@ -11,6 +11,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
+import jugadores.Jugador;
 
 public class frmJuego extends javax.swing.JFrame {
 
@@ -20,12 +21,13 @@ public class frmJuego extends javax.swing.JFrame {
     private int[] parejas;
     private int[] imagenCarta;
     private int cantidadBotones;
+    private jugadores.Jugador jugador;
 
     private int primeraCarta = -1;
     private int segundaCarta = -1;
 
-    private int movimientos = 0;
-    private int paresEncontrados = 0;
+     
+   
 
     private boolean esperando = false;
 
@@ -44,6 +46,7 @@ public class frmJuego extends javax.swing.JFrame {
 
         this.dificultad = dificultad;
         this.nombreJugador = nombreJugador;
+        jugador = new jugadores.Jugador(nombreJugador);
 
         cargarBotones();
         configurarTablero();
@@ -239,10 +242,10 @@ public class frmJuego extends javax.swing.JFrame {
 
             segundaCarta = posicion;
 
-            movimientos++;
+          jugador.IntentosSum();
 
             lblMovimientos.setText(
-                    String.valueOf(movimientos)
+                    String.valueOf(jugador.getIntentos())
             );
 
             comprobarPareja();
@@ -294,17 +297,17 @@ public class frmJuego extends javax.swing.JFrame {
             btns[primeraCarta].setEnabled(false);
             btns[segundaCarta].setEnabled(false);
 
-            paresEncontrados++;
+          jugador.ParejasCorrectas();
 
             lblParesEncontrados.setText(
-                    paresEncontrados
+                    jugador.getParejas()
                     + " / "
                     + (cantidadBotones / 2)
             );
 
             limpiarSeleccion();
 
-            if (paresEncontrados
+            if (jugador.getParejas()
                     == cantidadBotones / 2) {
 
                 juegoTerminado();
@@ -357,8 +360,7 @@ public class frmJuego extends javax.swing.JFrame {
         primeraCarta = -1;
         segundaCarta = -1;
 
-        movimientos = 0;
-        paresEncontrados = 0;
+       jugador.reiniciarJugador();
 
         esperando = false;
 
@@ -1135,17 +1137,9 @@ public class frmJuego extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton100;
-    private javax.swing.JButton jButton101;
-    private javax.swing.JButton jButton102;
-    private javax.swing.JButton jButton103;
-    private javax.swing.JButton jButton104;
-    private javax.swing.JButton jButton105;
-    private javax.swing.JButton jButton106;
     private javax.swing.JButton jButton107;
     private javax.swing.JButton jButton108;
     private javax.swing.JButton jButton109;
-    private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton110;
     private javax.swing.JButton jButton111;
     private javax.swing.JButton jButton112;
@@ -1156,7 +1150,6 @@ public class frmJuego extends javax.swing.JFrame {
     private javax.swing.JButton jButton117;
     private javax.swing.JButton jButton118;
     private javax.swing.JButton jButton119;
-    private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton120;
     private javax.swing.JButton jButton121;
     private javax.swing.JButton jButton122;
@@ -1167,7 +1160,6 @@ public class frmJuego extends javax.swing.JFrame {
     private javax.swing.JButton jButton127;
     private javax.swing.JButton jButton128;
     private javax.swing.JButton jButton129;
-    private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton130;
     private javax.swing.JButton jButton131;
     private javax.swing.JButton jButton132;
@@ -1177,11 +1169,6 @@ public class frmJuego extends javax.swing.JFrame {
     private javax.swing.JButton jButton136;
     private javax.swing.JButton jButton137;
     private javax.swing.JButton jButton138;
-    private javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton15;
-    private javax.swing.JButton jButton16;
-    private javax.swing.JButton jButton17;
-    private javax.swing.JButton jButton18;
     private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton20;
@@ -1209,68 +1196,11 @@ public class frmJuego extends javax.swing.JFrame {
     private javax.swing.JButton jButton40;
     private javax.swing.JButton jButton41;
     private javax.swing.JButton jButton42;
-    private javax.swing.JButton jButton43;
-    private javax.swing.JButton jButton44;
-    private javax.swing.JButton jButton45;
-    private javax.swing.JButton jButton46;
-    private javax.swing.JButton jButton47;
-    private javax.swing.JButton jButton48;
-    private javax.swing.JButton jButton49;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton50;
-    private javax.swing.JButton jButton51;
-    private javax.swing.JButton jButton52;
-    private javax.swing.JButton jButton53;
-    private javax.swing.JButton jButton54;
-    private javax.swing.JButton jButton55;
-    private javax.swing.JButton jButton56;
-    private javax.swing.JButton jButton57;
-    private javax.swing.JButton jButton58;
-    private javax.swing.JButton jButton59;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton60;
-    private javax.swing.JButton jButton61;
-    private javax.swing.JButton jButton62;
-    private javax.swing.JButton jButton63;
-    private javax.swing.JButton jButton64;
-    private javax.swing.JButton jButton65;
-    private javax.swing.JButton jButton66;
-    private javax.swing.JButton jButton67;
-    private javax.swing.JButton jButton68;
-    private javax.swing.JButton jButton69;
     private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton70;
-    private javax.swing.JButton jButton71;
-    private javax.swing.JButton jButton72;
-    private javax.swing.JButton jButton73;
-    private javax.swing.JButton jButton74;
-    private javax.swing.JButton jButton75;
-    private javax.swing.JButton jButton76;
-    private javax.swing.JButton jButton77;
-    private javax.swing.JButton jButton78;
-    private javax.swing.JButton jButton79;
     private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton80;
-    private javax.swing.JButton jButton81;
-    private javax.swing.JButton jButton82;
-    private javax.swing.JButton jButton83;
-    private javax.swing.JButton jButton84;
-    private javax.swing.JButton jButton85;
-    private javax.swing.JButton jButton86;
-    private javax.swing.JButton jButton87;
-    private javax.swing.JButton jButton88;
-    private javax.swing.JButton jButton89;
     private javax.swing.JButton jButton9;
-    private javax.swing.JButton jButton90;
-    private javax.swing.JButton jButton91;
-    private javax.swing.JButton jButton92;
-    private javax.swing.JButton jButton93;
-    private javax.swing.JButton jButton94;
-    private javax.swing.JButton jButton95;
-    private javax.swing.JButton jButton96;
-    private javax.swing.JButton jButton97;
-    private javax.swing.JButton jButton98;
-    private javax.swing.JButton jButton99;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -1290,9 +1220,6 @@ public class frmJuego extends javax.swing.JFrame {
     private javax.swing.JPanel pnlPares;
     private javax.swing.JPanel pnlPrincipal;
     private javax.swing.JPanel pnlTablero;
-    private javax.swing.JPanel pnlTablero1;
-    private javax.swing.JPanel pnlTablero2;
-    private javax.swing.JPanel pnlTablero3;
     private javax.swing.JPanel pnlTiempo;
     // End of variables declaration//GEN-END:variables
 }

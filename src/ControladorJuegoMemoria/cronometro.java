@@ -12,11 +12,13 @@ import javax.swing.Timer;
  */
 public class cronometro {
     private Cronometro.cronometro cron;
+    private jugadores.Jugador jugador;
     
     //timer en el mpodelo y en la vista hay que hacer otro para que se muestre
 
-    public cronometro(Cronometro.cronometro cron) {
+    public cronometro(Cronometro.cronometro cron, jugadores.Jugador jugador) {
         this.cron = cron;
+        this.jugador = jugador;
     }
 
    
@@ -36,9 +38,11 @@ public class cronometro {
     public void reiniciarTiempo(){
         cron.pararT();
        cron.reinicioT();
+       jugador.reiniciarJugador();
+       
     }
     public void timepoObtenido(){
-        
+        cron.tiempoDurado();
     }
     
 }
