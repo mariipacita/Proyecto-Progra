@@ -24,12 +24,18 @@ public class cronometro {
 
    public cronometro() {
     this.duracion = 0;
+     this.min = 0;
+     this.seg = 0;
+     
 
     timer = new Timer(1000, new ActionListener() {
        @Override
         public void actionPerformed(ActionEvent e) {
             
              duracion++;
+             if (duracion >1200){
+                 pararT();
+             }
            
             
         }
@@ -61,8 +67,9 @@ public class cronometro {
     
     
     public void reinicioT(){
+        duracion = 0;
        timer.restart();
-       duracion=0;
+      
     }
     
     public void iniciarT(){
@@ -70,19 +77,17 @@ public class cronometro {
         
     }
     public void pararT(){
-        if (timer.equals(900)){
-
-        timer.stop();
-        }
+            timer.stop();
+        tiempoDurado();
     }
     
-    public void tiempoDurado(){
+    public String tiempoDurado(){
           min= duracion/60;
              seg= duracion%60;
-      
+      return String.format("%02d:%02d", min, seg);
     }
 
-
+ 
     
     
     

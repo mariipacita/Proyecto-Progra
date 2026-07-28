@@ -10,22 +10,18 @@ import javax.swing.Timer;
  *
  * @author Student
  */
-public class cronometro {
+public class CronometroControl {
     private Cronometro.cronometro cron;
     private jugadores.Jugador jugador;
     
     //timer en el mpodelo y en la vista hay que hacer otro para que se muestre
 
-    public cronometro(Cronometro.cronometro cron, jugadores.Jugador jugador) {
+    public CronometroControl(Cronometro.cronometro cron, jugadores.Jugador jugador) {
         this.cron = cron;
         this.jugador = jugador;
     }
 
-   
-
-    
-
-    
+ 
     
     public void iniciar(){
       cron.iniciarT();
@@ -44,5 +40,9 @@ public class cronometro {
     public void timepoObtenido(){
         cron.tiempoDurado();
     }
+    
+    public String obtenerTiempo() {
+    return cron.tiempoDurado();
+}
     
 }

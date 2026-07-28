@@ -12,6 +12,7 @@ import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
 import jugadores.Jugador;
+import Cronometro.cronometro;
 
 public class frmJuego extends javax.swing.JFrame {
 
@@ -22,6 +23,9 @@ public class frmJuego extends javax.swing.JFrame {
     private int[] imagenCarta;
     private int cantidadBotones;
     private jugadores.Jugador jugador;
+    private Cronometro.cronometro cron;
+    private ControladorJuegoMemoria.CronometroControl cronometro;
+    private Timer timer;
 
     private int primeraCarta = -1;
     private int segundaCarta = -1;
@@ -47,7 +51,9 @@ public class frmJuego extends javax.swing.JFrame {
         this.dificultad = dificultad;
         this.nombreJugador = nombreJugador;
         jugador = new jugadores.Jugador(nombreJugador);
-
+        cron = new Cronometro.cronometro();
+        cronometro = new ControladorJuegoMemoria.CronometroControl(cron, jugador);
+        
         cargarBotones();
         configurarTablero();
         configurarEventos();
@@ -57,8 +63,15 @@ public class frmJuego extends javax.swing.JFrame {
         lblParesEncontrados.setText(
                 "0 / " + (cantidadBotones / 2)
         );
+        
         lblTiempo.setText("00:00");
+         timer = new Timer(1000, e -> {
 
+    lblTiempo.setText(cron.tiempoDurado());
+
+});
+         cron.iniciarT();
+         timer.start();
         setLocationRelativeTo(null);
     }
     
@@ -347,16 +360,20 @@ public class frmJuego extends javax.swing.JFrame {
     }
 
     private void juegoTerminado() {
-
+    cron.pararT();
+    timer.stop();
     frmFinal finalJuego = new frmFinal();
-
+   
     finalJuego.setVisible(true);
     finalJuego.setLocationRelativeTo(null);
 
     dispose();
 }
     private void reiniciarJuego() {
-
+        
+        
+        cron.reinicioT();
+        cron.iniciarT();
         primeraCarta = -1;
         segundaCarta = -1;
 
@@ -365,6 +382,7 @@ public class frmJuego extends javax.swing.JFrame {
         esperando = false;
 
         lblMovimientos.setText("0");
+        
 
         lblParesEncontrados.setText(
                 "0 / " + (cantidadBotones / 2)
@@ -376,6 +394,7 @@ public class frmJuego extends javax.swing.JFrame {
             btns[i].setText("");
             btns[i].setEnabled(true);
         }
+        
 
         asignarParejas();
     }
@@ -955,18 +974,21 @@ public class frmJuego extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         jLabel4.setText("Tiempo:");
 
-        lblTiempo.setText("jLabel2");
+        lblTiempo.setText("j");
 
         javax.swing.GroupLayout pnlTiempoLayout = new javax.swing.GroupLayout(pnlTiempo);
         pnlTiempo.setLayout(pnlTiempoLayout);
         pnlTiempoLayout.setHorizontalGroup(
             pnlTiempoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlTiempoLayout.createSequentialGroup()
-                .addGap(52, 52, 52)
                 .addGroup(pnlTiempoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblTiempo, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addContainerGap(52, Short.MAX_VALUE))
+                    .addGroup(pnlTiempoLayout.createSequentialGroup()
+                        .addGap(52, 52, 52)
+                        .addComponent(jLabel4))
+                    .addGroup(pnlTiempoLayout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(lblTiempo, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         pnlTiempoLayout.setVerticalGroup(
             pnlTiempoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -974,7 +996,7 @@ public class frmJuego extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblTiempo)
+                .addComponent(lblTiempo, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(30, Short.MAX_VALUE))
         );
 
@@ -1099,7 +1121,7 @@ public class frmJuego extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         pack();

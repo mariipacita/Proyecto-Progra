@@ -257,6 +257,7 @@ public class frmInicio extends javax.swing.JFrame {
 
     juego.setVisible(true);
     this.dispose();
+    
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
