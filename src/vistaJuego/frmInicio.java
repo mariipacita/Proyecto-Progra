@@ -69,7 +69,6 @@ public class frmInicio extends javax.swing.JFrame {
         lblNombreJugador.setText("Nombre del Jugador");
 
         txtNombreJugador.setForeground(new java.awt.Color(40, 40, 40));
-        txtNombreJugador.setText("jTextField1");
 
         lblDificultad.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         lblDificultad.setForeground(new java.awt.Color(35, 55, 100));
