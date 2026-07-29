@@ -58,8 +58,6 @@ public class Tablero {
             listaCartas.add(new Carta(imagenes[i]));
             listaCartas.add(new Carta(imagenes[i]));
         }
-        
-    Collections.shuffle(listaCartas);
 
         int posicion = 0;
 

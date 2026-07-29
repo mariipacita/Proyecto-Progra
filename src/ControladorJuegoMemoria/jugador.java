@@ -15,7 +15,9 @@ public class jugador {
 
     
      
-     
+     public jugador(Jugador jugador) {
+    this.jugador = jugador;
+}
      
      
    
@@ -31,14 +33,14 @@ public class jugador {
     public void reiniciar(){
         jugador.reiniciarJugador();
     }
-    public jugador(Jugador jugador) {
-        this.jugador = jugador;
-    }
     public int obtenerPareja(){
         return jugador.getParejas();
     }
      public int obtenerMovimientos(){
          return jugador.getIntentos();
      }
+     public int obtenerPuntaje() {
+        return jugador.getPuntaje();
+    }
     
 }
