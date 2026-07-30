@@ -5,7 +5,6 @@
 package tableros;
 import cartas.Carta;
 import java.util.ArrayList;
-import java.util.Collections;
 import niveles.Nivel;
 /**
  *
