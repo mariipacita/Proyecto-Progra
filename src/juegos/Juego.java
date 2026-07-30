@@ -81,9 +81,7 @@ public void verificarPareja() {
             }
         });
         timer.setRepeats(false);
-        timer.start();
-        
-        return;
+        timer.start();      
 }
 }
 
@@ -93,15 +91,12 @@ public void actualizarJugador() {
 
 }
 
-
-
 public void finalizarJuego() {
     Cronometro.pararT();
 
     System.out.println("Juego terminado");
     System.out.println("Puntaje: " + jugador.getPuntaje());
     System.out.println("Parejas encontradas: " + jugador.getParejas());
-  
 }
 
 
