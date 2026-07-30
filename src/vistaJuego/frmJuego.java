@@ -74,7 +74,7 @@ public class frmJuego extends javax.swing.JFrame {
     
 
 });
-         cronModelo.iniciarT();
+         cronometro.iniciar();
          timer.start();
         setLocationRelativeTo(null);
     }
