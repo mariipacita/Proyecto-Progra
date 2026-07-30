@@ -10,7 +10,6 @@ import java.awt.Image;
 import java.net.URL;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JOptionPane;
 import javax.swing.Timer;
 import jugadores.Jugador;
 import Cronometro.cronometro;
@@ -33,10 +32,6 @@ public class frmJuego extends javax.swing.JFrame {
     private TableroControl tableroControlador;
     private int primeraCarta = -1;
     private int segundaCarta = -1;
-
-     
-   
-
     private boolean esperando = false;
 
     private static final java.util.logging.Logger logger

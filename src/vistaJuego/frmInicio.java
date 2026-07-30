@@ -4,7 +4,6 @@
  */
 package vistaJuego;
 
-import java.awt.Color;
 import javax.swing.JOptionPane;
 
 /**

@@ -4,8 +4,6 @@
  */
 package vistaJuego;
 
-import Cronometro.cronometro;
-
 /**
  *
  * @author marii
@@ -17,6 +15,8 @@ public class frmFinal extends javax.swing.JFrame {
     private String tiempo;
     private int puntaje;
     private int dificultad;
+    
+    
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(frmFinal.class.getName());
 
     /**
