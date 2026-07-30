@@ -2,27 +2,26 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Cronometro;
+package ControladorJuegoMemoria;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
 /**
  *
- * @author gabri
+ * @author Student
  */
-public class CotrolCronometro {
-    
-private cronometro cron;
+public class CronometroControl {
+    private Cronometro.cronometro cron;
+    private jugadores.Jugador jugador;
     
     //timer en el mpodelo y en la vista hay que hacer otro para que se muestre
 
-    public CotrolCronometro(cronometro cron) {
+    public CronometroControl(Cronometro.cronometro cron) {
         this.cron = cron;
+        
     }
 
-    
-
-    
+ 
     
     public void iniciar(){
       cron.iniciarT();
@@ -35,90 +34,13 @@ private cronometro cron;
     public void reiniciarTiempo(){
         cron.pararT();
        cron.reinicioT();
+       jugador.reiniciarJugador();
+       
     }
-    public void timepoObtenido(){
-        
-    }
+  
     
+    public String obtenerTiempo() {
+    return cron.tiempoDurado();
+}
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  }
-
-
-
-
-
-    
+}

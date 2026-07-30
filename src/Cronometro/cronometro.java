@@ -14,30 +14,62 @@ import javax.swing.Timer;
  */
 public class cronometro {
      private Timer timer;
-    protected int duracion;
+    protected int duracion ;
+    protected int min;
+    protected int seg;
   
 
    
  
 
-   public cronometro(int duracion) {
-    this.duracion = duracion;
+   public cronometro() {
+    this.duracion = 0;
+     this.min = 0;
+     this.seg = 0;
+     
 
     timer = new Timer(1000, new ActionListener() {
-        
-        @Override
+       @Override
         public void actionPerformed(ActionEvent e) {
-            // Aquí irá la lógica para contar el tiempo
+            
+             duracion++;
+             if (duracion >1200){
+                 pararT();
+             }
+           
+            
         }
     });
 
 }
+
+    public Timer getTimer() {
+        return timer;
+    }
+
+    public int getDuracion() {
+        return duracion;
+    }
+
+    public int getMin() {
+        return min;
+    }
+
+    public int getSeg() {
+        return seg;
+    }
+
+    public void setTimer(Timer timer) {
+        this.timer = timer;
+    }
         
     
     
     
     public void reinicioT(){
+        duracion = 0;
        timer.restart();
+      
     }
     
     public void iniciarT(){
@@ -45,13 +77,17 @@ public class cronometro {
         
     }
     public void pararT(){
-        timer.stop();
+            timer.stop();
+        tiempoDurado();
     }
     
-    public void tiempoDurado(){
-        
+    public String tiempoDurado(){
+          min= duracion/60;
+             seg= duracion%60;
+      return String.format("%02d:%02d", min, seg);
     }
-    
+
+ 
     
     
     

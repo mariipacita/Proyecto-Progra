@@ -58,8 +58,6 @@ public class Tablero {
             listaCartas.add(new Carta(imagenes[i]));
             listaCartas.add(new Carta(imagenes[i]));
         }
-        
-    Collections.shuffle(listaCartas);
 
         int posicion = 0;
 
@@ -116,7 +114,8 @@ public class Tablero {
         inicializarTablero();
     }
   
-  public Tablero(Nivel nivel) {
+  public Tablero(Nivel nivel, String[] imagenes) {
+      this.imagenes = imagenes;
 
     switch (nivel) {
 
@@ -138,6 +137,6 @@ public class Tablero {
 
     cartas = new Carta[filas][columnas];
 
-    
+   inicializarTablero();  
 }
  }

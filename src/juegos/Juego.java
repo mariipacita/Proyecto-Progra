@@ -25,13 +25,14 @@ public class Juego {
     private Carta primeraCarta;
     private Carta segundaCarta;
     
-    public Juego(Jugador jugador, Nivel nivel){
+    public Juego(Jugador jugador, Nivel nivel,String[] imagenes){
         this.jugador = jugador;
         this.nivel = nivel;
-        this.tablero = new Tablero(nivel);
-        this.Cronometro = new cronometro(60);
+        this.tablero = new Tablero(nivel, imagenes);
+        this.Cronometro = new cronometro();
+       
+       
     }
-    
     public void iniciarPartida() {
         tablero.inicializarTablero();
         Cronometro.iniciarT();

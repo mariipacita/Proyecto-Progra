@@ -30,6 +30,10 @@ public class Jugador {
         return puntaje;
     }
 
+    public int getIntentos() {
+        return intentos;
+    }
+
     public int getParejas() {
         return parejas;
     }
