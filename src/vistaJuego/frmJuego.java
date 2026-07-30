@@ -4,6 +4,7 @@
  */
 package vistaJuego;
 
+import ControladorJuegoMemoria.ControlCartaTablero.controladorCartaTablero.TableroControl;
 import java.awt.Dimension;
 import java.awt.Image;
 import java.net.URL;
@@ -14,7 +15,6 @@ import javax.swing.Timer;
 import jugadores.Jugador;
 import Cronometro.cronometro;
 import ControladorJuegoMemoria.CronometroControl;
-import ControladorJuegoMemoria.controladorCartaTablero.TableroControl;
 import ControladorJuegoMemoria.jugador;
 
 public class frmJuego extends javax.swing.JFrame {
@@ -522,6 +522,7 @@ public class frmJuego extends javax.swing.JFrame {
         btnReiniciar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         pnlPrincipal.setBackground(new java.awt.Color(255, 255, 255));
 
