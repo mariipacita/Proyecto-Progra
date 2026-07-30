@@ -14,6 +14,7 @@ import javax.swing.Timer;
 import jugadores.Jugador;
 import Cronometro.cronometro;
 import ControladorJuegoMemoria.CronometroControl;
+import ControladorJuegoMemoria.controladorCartaTablero.TableroControl;
 import ControladorJuegoMemoria.jugador;
 
 public class frmJuego extends javax.swing.JFrame {
@@ -24,13 +25,12 @@ public class frmJuego extends javax.swing.JFrame {
     private int[] parejas;
     private int[] imagenCarta;
     private int cantidadBotones;
-  
     private Cronometro.cronometro cronModelo;
     private Jugador jugadorModelo;
     private ControladorJuegoMemoria.jugador jugadorControlador;
     private ControladorJuegoMemoria.CronometroControl cronometro;
     private Timer timer;
-
+    private TableroControl tableroControlador;
     private int primeraCarta = -1;
     private int segundaCarta = -1;
 
