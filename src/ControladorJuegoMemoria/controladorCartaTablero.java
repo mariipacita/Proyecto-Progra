@@ -8,6 +8,6 @@ package ControladorJuegoMemoria;
  *
  * @author marii
  */
-public class controladorJugadorTablero {
+public class controladorCartaTablero {
     
 }

@@ -81,7 +81,7 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Component id="pnlMovimientos" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="pnlTiempo1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="pnlPuntaje" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                                           <Component id="pnlTiempo" alignment="0" max="32767" attributes="0"/>
                                           <Component id="pnlPares" alignment="0" max="32767" attributes="0"/>
@@ -132,7 +132,7 @@
                                   <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                                   <Component id="pnlTiempo" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                                  <Component id="pnlTiempo1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="pnlPuntaje" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -1030,7 +1030,7 @@
             <Property name="text" type="java.lang.String" value="jLabel6"/>
           </Properties>
         </Component>
-        <Container class="javax.swing.JPanel" name="pnlTiempo1">
+        <Container class="javax.swing.JPanel" name="pnlPuntaje">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="78" green="3e" red="2a" type="rgb"/>
@@ -1044,7 +1044,7 @@
                       <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblTiempo1" min="-2" pref="53" max="-2" attributes="0"/>
+                          <Component id="lblPuntaje" min="-2" pref="53" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="55" max="32767" attributes="0"/>
                   </Group>
@@ -1056,7 +1056,7 @@
                       <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                       <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lblTiempo1" min="-2" pref="16" max="-2" attributes="0"/>
+                      <Component id="lblPuntaje" min="-2" pref="16" max="-2" attributes="0"/>
                       <EmptySpace pref="18" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -1074,7 +1074,7 @@
                 <Property name="text" type="java.lang.String" value="Puntaje"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="lblTiempo1">
+            <Component class="javax.swing.JLabel" name="lblPuntaje">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial Rounded MT Bold" size="12" style="0"/>
